@@ -7,8 +7,11 @@ import {
   Param,
   Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CoursesService } from './courses.service';
+import { CreateCourseDTO } from './dto/create-course.dto';
+import { UpdateCourseDTO } from './dto/update-course.dto';
 
 @Controller('courses')
 export class CoursesController {
@@ -17,27 +20,27 @@ constructor(private readonly courseService: CoursesService) {}
 
   @Get('list')
   findAll() {
-    return 'listagem de cursos';
+    return this.courseService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return `Curso com ID ${id}`;
+  findOne(@Param('id') id: number) {
+    return this.courseService.findOne(id);
   }
 
   @Post()
-  create(@Body() body) {
-    return body;
+  create(@Body() createCourseDTO: CreateCourseDTO) {
+    return this.courseService.create(createCourseDTO);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string) {
-    return `Update course with ID ${id}`;
+  @Put(':id')
+  update(@Param('id') id: number, @Body() updateCourseDTO: UpdateCourseDTO) {
+    return this.courseService.update(id, updateCourseDTO);
   }
 
   @HttpCode(204)
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return `Delete course with ID ${id}`;
+  delete(@Param('id') id: number) {
+    return this.courseService.remove(id)
   }
 }
