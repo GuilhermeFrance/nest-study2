@@ -1,17 +1,18 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Course } from 'src/entities/courses.entity';
+import { Tag } from 'src/entities/tags.entity';
 import { DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions:DataSourceOptions = {
     type: 'postgres',
     host: 'localhost',
-    port: 5433,
+    port: 5432,
     username: 'postgres',
     password: 'docker',
     database: 'nestraining',
-    entities: [Course],
-    synchronize: true,
+    entities: [Course, Tag],
+    synchronize: false,
 }
 
 
