@@ -21,7 +21,8 @@ Repositório referente aos meus estudos do Framework NestJs
 - Tratamento de erros com Nest
 - Validação de dados
 - Aprendendo a usar Docker/Postgres/TypeORM
-
+- Migrations
+  
 ## Project setup
 
 ```bash
