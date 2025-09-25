@@ -22,6 +22,7 @@ Repositório referente aos meus estudos do Framework NestJs
 - Validação de dados
 - Aprendendo a usar Docker/Postgres/TypeORM
 - Migrations
+- Testes Unitários (JEST)
   
 ## Project setup
 
